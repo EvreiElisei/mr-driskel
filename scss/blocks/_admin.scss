@@ -1,0 +1,87 @@
+.admin {
+	&__title {
+		text-align: center;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	&__nav {
+		display: flex;
+		justify-content: center;
+		gap: 0 30px;
+		&-item {
+			@include fluid-text(30, 20);
+			position: relative;
+			overflow: hidden;
+			padding: 20px 0;
+		}
+
+		&-item:hover &-accent {
+			transform: rotateY(0deg);
+		}
+		&-accent {
+			--marceting-accent-transition-duration: 0.4s;
+			position: absolute;
+			display: block;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			bottom: 18px;
+			height: 2px;
+			width: 99%;
+			transition-duration: var(--marceting-accent-transition-duration);
+			background-color: var(--color-accent);
+			transform-origin: center;
+			transform: rotateY(90deg);
+
+			&::after {
+				content: "";
+				position: absolute;
+				@include square(4px);
+				background-color: var(--color-accent);
+				left: 0px;
+				top: 50%;
+				transform: translateY(-50%) rotate(45deg);
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				@include square(4px);
+				background-color: var(--color-accent);
+				right: 0px;
+				top: 50%;
+				transform: translateY(-50%) rotate(45deg);
+			}
+		}
+	}
+	&__product {
+		display: flex;
+		justify-content: left;
+		gap: 0 20px;
+		margin-bottom: 60px;
+		&-title {
+			min-width: 290px;
+		}
+	}
+	&__form {
+		width: 100%;
+		max-width: 600px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px 0;
+		&-input {
+			padding: 23px 23px 23px 30px;
+			font-size: 17px;
+			height: var(--input-height);
+
+			&:last-child {
+				cursor: pointer;
+			}
+		}
+		label {
+			font-size: 20px;
+		}
+	}
+	&__btn {
+		align-self: center;
+	}
+}

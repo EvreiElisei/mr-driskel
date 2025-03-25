@@ -1,0 +1,38 @@
+.header-admin {
+	padding-top: 15px;
+	background: var(--color-dark);
+	color: var(--color-light-text);
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 15px;
+		border-bottom: var(--border-light);
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -3px;
+			left: -1px;
+			@include square(5px);
+			background-color: var(--color-accent);
+			clip-path: polygon(100% 50%, 0 0, 0 100%);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -3px;
+			right: -1px;
+			@include square(5px);
+			background-color: var(--color-accent);
+			clip-path: polygon(0 50%, 100% 0, 100% 100%);
+		}
+	}
+	.nav-admin {
+		&__list {
+			display: flex;
+			gap: 0 30px;
+		}
+	}
+}

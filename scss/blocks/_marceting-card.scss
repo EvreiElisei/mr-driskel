@@ -1,0 +1,109 @@
+.marceting__card {
+	position: absolute;
+	max-width: 289px;
+	height: 364px;
+	padding: 10px 0 30px;
+	background-color: var(--color-light-card);
+	transition-duration: var(--transition-duration);
+	margin-bottom: 90px;
+	@include hover {
+		box-shadow: var(--box-shadow);
+		transform: translateY(-25px);
+		height: 434px;
+		margin-bottom: 0;
+		z-index: 101;
+		&-busket-btn {
+			display: block;
+		}
+	}
+
+	&-absolute {
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		right: 30px;
+		z-index: 100;
+		display: flex;
+		justify-content: space-between;
+	}
+	&-status {
+		position: relative;
+		border: var(--border-light-thin);
+		min-width: 85px;
+		height: 30px;
+		font-size: 15px;
+		padding: 2px 20px 6px 10px;
+		color: var(--color-accent);
+		&::after {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-top: 15px solid transparent;
+			border-right: 12px solid var(--color-accent);
+			border-bottom: 15px solid transparent;
+			top: 50%;
+			right: -1px;
+			transform: translateY(-50%);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-top: 15px solid transparent;
+			border-right: 12px solid var(--color-light-card);
+			border-bottom: 15px solid transparent;
+			top: 50%;
+			right: -2px;
+			transform: translateY(-50%);
+			z-index: 10;
+		}
+	}
+	&-swiperpagination {
+		margin-bottom: 6px;
+		display: flex;
+		justify-content: center;
+		gap: 0 8px;
+	}
+	.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+		margin: 0;
+		height: 10px;
+		width: 10px;
+		border-radius: 0;
+	}
+	.swiper-pagination-bullet-active {
+		background-color: var(--color-accent-dark);
+	}
+
+	&-bottom {
+		display: flex;
+		flex-direction: column;
+		gap: 10px 0;
+		padding: 0 30px;
+	}
+
+	&-name {
+		@include fluid-text(17, 15);
+		min-height: 44px;
+	}
+	&-price {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--color-accent);
+	}
+
+	&-busket {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+	}
+	&-busket-btn {
+		opacity: 0;
+		transition-duration: var(--transition-duration);
+	}
+}
+.marceting__card:hover .marceting__card-busket-btn {
+	opacity: 1;
+}

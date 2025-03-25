@@ -1,0 +1,16 @@
+.section {
+	&:not(:first-child) {
+		padding-block: var(--section-padding-y);
+	}
+	&--hidden-x {
+		overflow: hidden;
+	}
+
+	&__title {
+		margin-bottom: 50px;
+		text-align: center;
+	}
+}
+.section.top {
+	margin-bottom: var(--section-padding-y);
+}

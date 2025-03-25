@@ -1,0 +1,25 @@
+.marceting {
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+	&__inner {
+		margin-bottom: 50px;
+		display: grid;
+		gap: 20px;
+		grid-template-columns: repeat(4, 1fr);
+
+		@include tablet {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	&__row {
+		position: relative;
+		max-width: 289px;
+		height: 364px;
+	}
+
+	&__showmore {
+		align-self: center;
+	}
+}

@@ -1,0 +1,111 @@
+.header-top {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding-bottom: 15px;
+	position: relative;
+	border-bottom: var(--border-dark);
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -3px;
+		left: -1px;
+		@include square(5px);
+		background-color: var(--color-accent-dark);
+		clip-path: polygon(100% 50%, 0 0, 0 100%);
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -3px;
+		right: -1px;
+		@include square(5px);
+		background-color: var(--color-accent-dark);
+		clip-path: polygon(0 50%, 100% 0, 100% 100%);
+	}
+	.logo {
+		justify-self: center;
+	}
+
+	&__contacts {
+		align-self: end;
+		&-top {
+			font-size: 15px;
+			display: flex;
+			gap: 0 55px;
+			margin-bottom: 5px;
+
+			a {
+				@include hover {
+					color: var(--color-accent);
+				}
+			}
+		}
+
+		&-phone,
+		&-mail {
+			position: relative;
+			padding-left: 38px;
+		}
+		&-phone {
+			&::before {
+				content: "";
+				background-image: url("../img/header/Call.svg");
+				background-repeat: no-repeat;
+				position: absolute;
+				@include square(28px);
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+
+		&-mail {
+			&::after {
+				content: "";
+				background-image: url("../img/header/mail.svg");
+				background-repeat: no-repeat;
+				position: absolute;
+				@include square(28px);
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		&-list {
+			font-size: 12px;
+			display: flex;
+			gap: 0 10px;
+		}
+		&-item {
+			@include hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+
+	.user-action {
+		justify-self: end;
+		align-self: center;
+
+		&__list {
+			display: flex;
+			align-items: center;
+			gap: 0 50px;
+		}
+		&__item {
+			button {
+				background: inherit;
+			}
+
+			path {
+				transition: var(--transition-duration);
+			}
+			&:hover {
+				path {
+					fill: var(--color-accent);
+				}
+			}
+		}
+	}
+}

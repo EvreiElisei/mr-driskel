@@ -1,0 +1,119 @@
+.pop-brend {
+	position: relative;
+	overflow-x: hidden;
+	&__title {
+		margin-bottom: 30px;
+	}
+	&__slide {
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__row {
+		display: flex;
+
+		&-link {
+			border-bottom: 1px var(--color-gray) solid;
+			padding: 0 20px;
+			position: relative;
+			img {
+				transition-duration: var(--transition-duration);
+			}
+
+			@include hover {
+				img {
+					transform: scale(0.9);
+				}
+			}
+			&::after {
+				@include square(6px);
+				position: absolute;
+				content: "";
+				background: var(--color-gray);
+				right: -3.9px;
+			}
+			&:first-child {
+				padding-left: 0;
+				&::before {
+					@include square(6px);
+					position: absolute;
+					content: "";
+					background: var(--color-gray);
+					left: 0;
+					bottom: -3.9px;
+					clip-path: polygon(100% 50%, 0 0, 0 100%);
+				}
+			}
+			&:last-child {
+				padding-right: 0;
+				&::after {
+					display: none;
+				}
+				&::before {
+					@include square(6px);
+					position: absolute;
+					content: "";
+					background: var(--color-gray);
+					right: 0;
+					bottom: -3.9px;
+					clip-path: polygon(0 50%, 100% 0, 100% 100%);
+				}
+			}
+			&:not(:last-child) {
+				border-right: 1px var(--color-gray) solid;
+			}
+		}
+	}
+	&__button-box {
+		position: absolute;
+		max-width: 1376px;
+		width: 100%;
+		left: 50%;
+		top: 55%;
+		transform: translateX(-50%);
+		height: 50px;
+	}
+	&__button-next,
+	&__button-prev {
+		width: 50px !important;
+		height: 50px !important;
+		border: var(--border-light-thin);
+
+		&::after {
+			content: "" !important;
+			@include square(15px);
+			background: var(--color-accent);
+		}
+	}
+	&__button-next {
+		&::after {
+			clip-path: polygon(100% 50%, 0 0, 0 100%);
+		}
+	}
+	&__button-prev {
+		&::after {
+			clip-path: polygon(0 50%, 100% 0, 100% 100%);
+		}
+	}
+}
+.pop-brend__row:first-child .pop-brend__row-link {
+	padding-bottom: 20px;
+}
+.pop-brend__row:first-child .pop-brend__row-link::after {
+	top: 0;
+	clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+.pop-brend__row:last-child .pop-brend__row-link:first-child::before {
+	display: none;
+}
+.pop-brend__row:last-child .pop-brend__row-link:last-child::before {
+	display: none;
+}
+.pop-brend__row:last-child .pop-brend__row-link {
+	padding-top: 20px;
+	border-bottom: 0;
+}
+.pop-brend__row:last-child .pop-brend__row-link::after {
+	bottom: 0;
+	clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}

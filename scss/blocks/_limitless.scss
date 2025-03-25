@@ -1,0 +1,82 @@
+.limitless {
+	justify-content: center;
+	display: flex;
+	gap: 0 20px;
+	overflow: hidden;
+
+	&__item {
+		position: relative;
+		max-width: 950px;
+	}
+
+	&__img {
+		max-width: 100%;
+		width: auto;
+	}
+
+	&__title {
+		@include fluid-text(40, 25);
+
+		color: var(--color-light-text);
+		position: absolute;
+		top: 40px;
+		&-left {
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+		&-right {
+			left: 50px;
+			max-width: 267px;
+		}
+	}
+
+	&__link {
+		position: absolute;
+		bottom: 40px;
+		left: 50px;
+		font-size: 20px;
+		color: var(--color-accent);
+		overflow: hidden;
+		padding-bottom: 20px;
+		transition-duration: var(--transition-duration);
+
+		&--accent {
+			position: absolute;
+			display: block;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			bottom: 18px;
+			height: 1px;
+			width: 99%;
+			background-color: var(--color-accent);
+
+			&::after {
+				content: "";
+				position: absolute;
+				@include square(4px);
+				background-color: var(--color-accent);
+				left: 0px;
+				top: 50%;
+				transform: translateY(-50%) rotate(45deg);
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				@include square(4px);
+				background-color: var(--color-accent);
+				right: 0px;
+				top: 50%;
+				transform: translateY(-50%) rotate(45deg);
+			}
+		}
+		&-left {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&-right {
+			left: 50px;
+		}
+	}
+}

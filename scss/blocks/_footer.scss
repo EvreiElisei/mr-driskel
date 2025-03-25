@@ -1,0 +1,89 @@
+.footer {
+	margin-top: calc(var(--section-padding-y) + 80px);
+	padding: 120px 0;
+	background-color: var(--color-dark);
+	color: var(--color-light-text);
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__left {
+		display: flex;
+		justify-content: space-between;
+		width: 50%;
+	}
+	&__logo {
+		display: inline-block;
+		margin-bottom: 52px;
+	}
+	&__list {
+		display: flex;
+		gap: 0 80px;
+	}
+	&__link {
+		@include fluid-text(20, 17);
+	}
+	&__item-list {
+		display: flex;
+		flex-direction: column;
+		gap: 34px 0;
+	}
+
+	&__right {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+	}
+	&__contacts {
+		display: flex;
+		gap: 0 25px;
+		margin-bottom: 12px;
+		align-items: center;
+	}
+	&__phone {
+		font-size: 20px;
+		display: inline-block;
+		padding-left: 38px;
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "";
+
+			@include square(28px);
+
+			left: 0;
+			background-image: url("../img/footer/Call.svg");
+			background-repeat: no-repeat;
+		}
+	}
+
+	&__message-list {
+		display: flex;
+		gap: 0 12px;
+	}
+
+	&__time {
+		color: var(--color-gray-text);
+		margin-bottom: 32px;
+	}
+	&__mail {
+		display: inline-block;
+		padding-left: 38px;
+		position: relative;
+		font-size: 20px;
+
+		&::before {
+			position: absolute;
+			content: "";
+
+			@include square(28px);
+
+			left: 0;
+			background-image: url("../img/footer/mail.svg");
+			background-repeat: no-repeat;
+		}
+	}
+}

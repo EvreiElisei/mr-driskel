@@ -1,0 +1,49 @@
+.about {
+	@include mobile-above {
+		display: flex;
+		max-width: var(--container-width-large);
+		margin: 0 auto;
+	}
+
+	&__content {
+		flex: 0 0 100%;
+		transform: translate(-50%, 0px);
+		display: flex;
+		align-items: center;
+	}
+	&__container {
+		max-width: var(--container-width);
+		padding-inline: var(--container-padding-x);
+		margin: 0 auto;
+		display: flex;
+		justify-content: end;
+	}
+	&__body {
+		padding-left: 30px;
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	&__title {
+		@include fluid-text(50, 25);
+		color: var(--color-accent);
+	}
+
+	&__text {
+		@include fluid-text(17, 15);
+	}
+	&__btn {
+		margin-top: 20px;
+		align-self: start;
+	}
+	&__img {
+		@include mobile-above {
+			flex: 0 0 50%;
+		}
+		img {
+			max-width: 100%;
+		}
+	}
+}
