@@ -68,6 +68,9 @@
     &-oldprice {
       @include fluid-text(17, 15);
       margin-right: 25px;
+      color: var(--color-gray-text);
+      font-weight: 400;
+      text-decoration: line-through;
     }
     &-quantity {
       font-size: 17px;

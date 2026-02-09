@@ -1,70 +1,89 @@
 .button {
-	@include flex-center(true);
-	height: var(--button-height);
-	min-width: var(--button-min-width);
-	padding-inline: 25px;
-	font-size: 20px;
-	color: var(--color-accent);
-	background-color: var(--color-light-bg);
-	border: var(--border-light);
-	position: relative;
-	max-width: 257px;
+  @include flex-center(true);
+  height: var(--button-height);
+  min-width: var(--button-min-width);
+  padding-inline: 25px;
+  font-size: 20px;
+  color: var(--color-accent);
+  background-color: var(--color-light-bg);
+  border: var(--border-light);
+  position: relative;
+  max-width: 257px;
 
-	&::after,
-	&::before {
-		@include square(18px);
+  &::after,
+  &::before {
+    @include square(18px);
 
-		position: absolute;
-		content: "";
-		background-color: var(--color-light-bg);
-		border: var(--border-light);
-		transform: rotate(45deg);
-		transition-duration: var(--transition-duration);
-	}
+    position: absolute;
+    content: "";
+    background-color: var(--color-light-bg);
+    border: var(--border-light);
+    transform: rotate(45deg);
+    transition-duration: var(--transition-duration);
+  }
 
-	&::after {
-		right: -10px;
-		border-bottom: 0px;
-		border-left: 0px;
-	}
-	&::before {
-		left: -10px;
-		border-top: 0px;
-		border-right: 0px;
-	}
+  &::after {
+    right: -10px;
+    border-bottom: 0px;
+    border-left: 0px;
+  }
+  &::before {
+    left: -10px;
+    border-top: 0px;
+    border-right: 0px;
+  }
 
-	&--card {
-		height: var(--button-height-card);
-		min-width: var(--button-min-width-card);
-	}
+  &--card {
+    height: var(--button-height-card);
+    min-width: var(--button-min-width-card);
+  }
 
-	@include hover {
-		color: var(--color-dark-text);
-		background-color: var(--color-accent);
+  @include hover {
+    color: var(--color-dark-text);
+    background-color: var(--color-accent);
 
-		&::after,
-		&::before {
-			background-color: var(--color-accent);
-		}
-	}
+    &::after,
+    &::before {
+      background-color: var(--color-accent);
+    }
+  }
+  &__active {
+    color: var(--color-dark-text);
+    background-color: var(--color-accent);
 
-	cursor: pointer;
+    &::after,
+    &::before {
+      background-color: var(--color-accent);
+    }
+    @include hover {
+      background: var(--color-accent-dark);
+      color: var(--color-light-text);
+      &::after,
+      &::before {
+        background-color: var(--color-accent-dark);
+      }
+    }
+  }
+  cursor: pointer;
 
-	&--accent {
-		background-color: var(--color-accent-dark);
-		color: var(--color-light-text);
+  &--accent {
+    background-color: var(--color-accent-dark);
+    color: var(--color-light-text);
 
-		@include hover {
-			color: var(--color-accent);
-			background-color: var(--color-light-bg);
-			&::after,
-			&::before {
-				background-color: var(--color-light-bg);
-			}
-		}
-		&::after,
-		&::before {
-			background-color: var(--color-accent-dark);
-		}
-	}
+    @include hover {
+      color: var(--color-accent);
+      background-color: var(--color-light-bg);
+      &::after,
+      &::before {
+        background-color: var(--color-light-bg);
+      }
+    }
+    &::after,
+    &::before {
+      background-color: var(--color-accent-dark);
+    }
+  }
+  &--light {
+    height: var(--button-height-light);
+  }
 }

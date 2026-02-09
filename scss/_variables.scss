@@ -1,41 +1,43 @@
 :root {
-	--color-dark: #050402;
-	--color-dark-text: #3e424b;
-	--color-gray-text: #636b78;
-	--color-light-text: #faf6f2;
-	--color-light-card: #f5f5f5;
-	--color-light-bg: #eee;
-	--color-gray: #d0d0d0;
-	--color-accent-dark: #524336;
-	--color-accent: #bb8c5f;
+  --color-dark: #050402;
+  --color-dark-text: #3e424b;
+  --color-gray-text: #636b78;
+  --color-light-text: #faf6f2;
+  --color-light-card: #f5f5f5;
+  --color-light-bg: #eee;
+  --color-gray: #d0d0d0;
+  --color-accent-dark: #524336;
+  --color-accent: #bb8c5f;
 
-	--border-light-thin: 1px solid var(--color-accent);
-	--border-light: 2px solid var(--color-accent);
-	--border-dark: 2px solid var(--color-accent-dark);
+  --border-light-thin: 1px solid var(--color-accent);
+  --border-light: 2px solid var(--color-accent);
+  --border-dark: 2px solid var(--color-accent-dark); // переназвать в border-accent-dark
+  --border-gray: 1px solid var(--color-gray);
 
-	--box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.1);
+  --box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.1);
 
-	--font-family-base: "Jost", sans-serif;
-	--font-family-h1: "Forum", sans-serif;
+  --font-family-base: "Jost", sans-serif;
+  --font-family-h1: "Forum", sans-serif;
 
-	--container-width: 1220px;
-	--container-width-large: 1920px;
-	--container-padding-x: 20px;
+  --container-width: 1220px;
+  --container-width-large: 1920px;
+  --container-padding-x: 20px;
 
-	--section-padding-y: 60px;
-	--button-height: 70px;
-	--button-min-width: 275px;
-	--button-min-width-card: 240px;
-	--button-height-card: 50px;
-	--input-height: 70px;
-	--input-height-small: 44px;
+  --section-padding-y: 60px;
+  --button-height: 70px;
+  --button-height-light: 50px;
+  --button-min-width: 275px;
+  --button-min-width-card: 240px;
+  --button-height-card: 50px;
+  --input-height: 60px;
+  --input-height-small: 44px;
 
-	--transition-duration: 0.2s;
+  --transition-duration: 0.2s;
 
-	@include tablet {
-		--section-padding-y: 40px;
-	}
-	@include mobile {
-		--section-padding-y: 60px;
-	}
+  @include tablet {
+    --section-padding-y: 40px;
+  }
+  @include mobile {
+    --section-padding-y: 60px;
+  }
 }

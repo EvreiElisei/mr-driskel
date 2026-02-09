@@ -5,6 +5,7 @@ const slides = document.querySelectorAll(".top-slide");
 const bottom = document.querySelector(".swiper-pagination-bullets");
 
 let swiperControl;
+let swiperControlCheck = 0;
 let swiperDelay = 4000;
 
 let currentSlideIndex = 0;
@@ -72,8 +73,12 @@ function autoSwipeStart() {
   swiperControl = setInterval(nextSlide, swiperDelay);
 }
 function autoSwiperSuspend() {
-  clearInterval(swiperControl);
-  setTimeout(autoSwipeStart, swiperDelay);
+  if (swiperControl == swiperControlCheck) {
+  } else {
+    clearInterval(swiperControl);
+    swiperControlCheck = swiperControl;
+    setTimeout(autoSwipeStart, swiperDelay);
+  }
 }
 autoSwipeStart();
 console.log(swiperControl);

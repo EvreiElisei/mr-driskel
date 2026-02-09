@@ -1,0 +1,27 @@
+.border-special {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 6px;
+    aspect-ratio: 1;
+
+    -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: 0;
+    width: 6px;
+
+    aspect-ratio: 1;
+    -webkit-clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  }
+}

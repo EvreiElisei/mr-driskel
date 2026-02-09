@@ -1,0 +1,72 @@
+.catalog-main {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__row {
+    display: flex;
+    gap: 20px;
+  }
+  &__card {
+    outline: 2px transparent solid;
+    background-color: var(--color-light-card);
+    position: relative;
+    width: 100%;
+    display: flex;
+    height: 350px;
+    transition-duration: var(--transition-duration);
+    @include hover {
+      outline: 2px var(--color-accent) solid;
+    }
+    &-1,
+    &-4 {
+      justify-content: end;
+      max-width: 496px;
+    }
+
+    &-2,
+    &-6,
+    &-11 {
+      justify-content: center;
+      max-width: 704px;
+      align-items: end;
+    }
+
+    &-3,
+    &-5,
+    &-7,
+    &-8,
+    &-9,
+    &-10 {
+      justify-content: center;
+      align-items: end;
+      max-width: 342px;
+    }
+
+    &-8,
+    &-7 {
+      img {
+        padding-bottom: 24px;
+      }
+    }
+    &-9,
+    &-10,
+    &-11 {
+      padding-bottom: 14px;
+    }
+
+    &-title {
+      position: absolute;
+      padding-left: 50px;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+    }
+    &-img {
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+}

@@ -1,0 +1,251 @@
+.big-basket {
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0 20px;
+  }
+  &__inner--empty {
+    display: block;
+  }
+  &__left {
+    background: var(--color-light-card);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  &__sum {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &--final {
+      font-size: 25;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+  }
+  &__box {
+    padding: 30px 40px 40px 40px;
+    border-bottom: var(--border-gray);
+
+    &::after,
+    &::before {
+      background: var(--color-gray);
+    }
+  }
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    gap: 10px 0;
+  }
+}
+
+.order-info {
+  margin-bottom: 30px;
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: 289px 186px 289px;
+    gap: 20px;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 9px 0;
+  }
+  &__column.-full-name {
+  }
+  &__label {
+    color: var(--color-gray-text);
+  }
+  &__field {
+    width: 100%;
+    font-size: 17px;
+    padding: 23px 30px;
+    color: var(--color-dark-text);
+  }
+}
+
+.promocode {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  &__label {
+    color: var(--color-gray-text);
+  }
+  &__field {
+    height: var(--input-height);
+    padding: 23px 30px;
+    font-size: 17px;
+    color: var(--color-dark-text);
+    border: 2px var(--color-gray-text) solid;
+    margin-bottom: 6px;
+  }
+  &__btn {
+    align-self: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      font-size: 20px;
+      color: var(--color-accent);
+      background: transparent;
+    }
+  }
+}
+
+.payment-delivery {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+.buy {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 40px 30px;
+  align-items: center;
+
+  &__btn {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__agreement {
+    a {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+  }
+}
+.goods-box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 354px 80px 130px 152px;
+    gap: 0 15px;
+    border-bottom: var(--border-gray);
+    padding-bottom: 15px;
+
+    &::before,
+    &::after {
+      background-color: var(--color-gray);
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: 354px 80px 130px 152px 11px;
+    gap: 0 15px;
+  }
+  &__cell {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 0 20px;
+  }
+  &__cell.-name {
+    justify-content: left;
+  }
+
+  &__img {
+    max-width: 103px;
+    max-height: 103px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  &__field {
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    text-align: center;
+    border: var(--border-light);
+    background: transparent;
+  }
+  &__plus,
+  &__minus {
+    transform: rotate(90deg);
+    position: relative;
+    width: 11px;
+    height: 11px;
+    &::before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: var(--color-dark-text);
+      border-radius: 2px;
+      position: absolute;
+      top: 0;
+      left: 4px;
+    }
+  }
+  &__plus::after {
+    transform: rotate(90deg);
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: var(--color-dark-text);
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 4px;
+  }
+  &__delete {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: var(--color-dark-text);
+      border-radius: 2px;
+      position: absolute;
+      top: 0;
+      left: 4px;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

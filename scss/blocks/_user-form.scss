@@ -9,7 +9,7 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    z-index: 100;
+    z-index: 108;
 
     display: none;
     flex-direction: column;
@@ -43,9 +43,6 @@
       margin: 10px auto 20px;
     }
     &__checkbox-box {
-      display: flex;
-      align-items: center;
-      gap: 0 20px;
       margin-bottom: 10px;
       label {
         font-size: 13px;
@@ -61,6 +58,10 @@
           color: var(--color-accent);
         }
       }
+    }
+    &__field-errors {
+      display: block;
+      color: var(--color-accent);
     }
   }
   .user-form__login {

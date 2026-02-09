@@ -1,111 +1,173 @@
 .header-top {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	padding-bottom: 15px;
-	position: relative;
-	border-bottom: var(--border-dark);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 15px;
+  position: relative;
+  border-bottom: var(--border-dark);
 
-	&::before {
-		content: "";
-		position: absolute;
-		bottom: -3px;
-		left: -1px;
-		@include square(5px);
-		background-color: var(--color-accent-dark);
-		clip-path: polygon(100% 50%, 0 0, 0 100%);
-	}
-	&::after {
-		content: "";
-		position: absolute;
-		bottom: -3px;
-		right: -1px;
-		@include square(5px);
-		background-color: var(--color-accent-dark);
-		clip-path: polygon(0 50%, 100% 0, 100% 100%);
-	}
-	.logo {
-		justify-self: center;
-	}
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: -1px;
+    @include square(5px);
+    background-color: var(--color-accent-dark);
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    right: -1px;
+    @include square(5px);
+    background-color: var(--color-accent-dark);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  }
+  .logo {
+    justify-self: center;
+  }
 
-	&__contacts {
-		align-self: end;
-		&-top {
-			font-size: 15px;
-			display: flex;
-			gap: 0 55px;
-			margin-bottom: 5px;
+  &__contacts {
+    align-self: end;
+    &-top {
+      font-size: 15px;
+      display: flex;
+      gap: 0 55px;
+      margin-bottom: 5px;
 
-			a {
-				@include hover {
-					color: var(--color-accent);
-				}
-			}
-		}
+      a {
+        @include hover {
+          color: var(--color-accent);
+        }
+      }
+    }
 
-		&-phone,
-		&-mail {
-			position: relative;
-			padding-left: 38px;
-		}
-		&-phone {
-			&::before {
-				content: "";
-				background-image: url("../img/header/Call.svg");
-				background-repeat: no-repeat;
-				position: absolute;
-				@include square(28px);
-				left: 0;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-		}
+    &-phone,
+    &-mail {
+      position: relative;
+      padding-left: 38px;
+    }
+    &-phone {
+      &::before {
+        content: "";
+        background-image: url("../img/header/Call.svg");
+        background-repeat: no-repeat;
+        position: absolute;
+        @include square(28px);
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
 
-		&-mail {
-			&::after {
-				content: "";
-				background-image: url("../img/header/mail.svg");
-				background-repeat: no-repeat;
-				position: absolute;
-				@include square(28px);
-				left: 0;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-		}
-		&-list {
-			font-size: 12px;
-			display: flex;
-			gap: 0 10px;
-		}
-		&-item {
-			@include hover {
-				color: var(--color-accent);
-			}
-		}
-	}
+    &-mail {
+      &::after {
+        content: "";
+        background-image: url("../img/header/mail.svg");
+        background-repeat: no-repeat;
+        position: absolute;
+        @include square(28px);
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &-list {
+      font-size: 12px;
+      display: flex;
+      gap: 0 10px;
+    }
+    &-item {
+      @include hover {
+        color: var(--color-accent);
+      }
+    }
+  }
 
-	.user-action {
-		justify-self: end;
-		align-self: center;
+  .user-action {
+    justify-self: end;
+    align-self: center;
 
-		&__list {
-			display: flex;
-			align-items: center;
-			gap: 0 50px;
-		}
-		&__item {
-			button {
-				background: inherit;
-			}
+    &__list {
+      display: flex;
+      align-items: end;
+      gap: 0 50px;
+    }
+    &__action {
+      display: flex;
+      flex-direction: column;
+      gap: 3px 0;
+      text-align: center;
+      font-size: 12px;
+      align-items: center;
+      background: inherit;
+      color: #ffffff;
+      transition: var(--transition-duration);
+      &:hover {
+        path {
+          fill: var(--color-accent);
+        }
+        color: var(--color-accent);
+      }
+    }
+    .wish-box,
+    .cart-box {
+      position: absolute;
+      background: var(--color-accent);
+      height: 16px;
+      min-width: 22px;
+      color: #ffffff;
+      right: 4px;
+      top: -3px;
+      border-radius: 20px;
+    }
+    s &__svg-wrapper-basket {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-			path {
-				transition: var(--transition-duration);
-			}
-			&:hover {
-				path {
-					fill: var(--color-accent);
-				}
-			}
-		}
-	}
+    &__item {
+      position: relative;
+    }
+  }
+}
+.open-form {
+  position: relative;
+
+  &__dropdown {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    top: 100%;
+    left: 0;
+    position: absolute;
+    width: 190px;
+    z-index: 100;
+    background-color: var(--color-light-card);
+    transition: 0.2s ease;
+  }
+  &__list {
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    &-action {
+      background-color: inherit;
+      padding: 5px 12px;
+      color: var(--color-dark-text);
+      font-size: 14px;
+    }
+    &-item {
+    }
+  }
+}
+
+.user-action__item:hover .open-form__dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }

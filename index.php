@@ -1,11 +1,12 @@
 <?php
 require_once "components/action/core.php";
+$connect = getDatebaseConnection();
 require_once "components/header.php";
 require_once "components/user-form.php";
 ?>
 
 
-<main class="main">
+<main id="home-page" class="main">
 	<section class="top section">
 		<div class="top-slider__inner">
 			<div class="top-slide">
@@ -84,151 +85,91 @@ require_once "components/user-form.php";
 					</li>
 				</ul>
 			</nav>
-			<div class="marceting__inner">
-				<?php
-				$marceting_arr = "SELECT * FROM `products`";
-				$marceting_arr_res = $connect->query($marceting_arr);
-				if ($marceting_arr_res->num_rows > 0) {
-					while ($row = $marceting_arr_res->fetch_assoc()) {
-				?>
-						<a href="components/product_page.php?id=<?= $row['id'] ?>>">
-							<div class="marceting__row promotion">
-								<div class="marceting__card">
-									<div class="marceting__card-absolute">
-										<?php
-										if ($row['status'] !== "") {
-										?>
-											<span class="marceting__card-status">
-												<?= $row['status'] ?>
-											</span>
-										<?php
-										}
-										?>
-										<button class="marceting__card-wish">
-											<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd" clip-rule="evenodd"
-													d="M18.2627 9.62586V9.62282C18.7622 9.10014 19.155 8.4846 19.4188 7.81058C19.6977 7.09752 19.8262 6.33445 19.7959 5.56936C19.7657 4.80427 19.5775 4.0537 19.2432 3.36487C18.9088 2.67604 18.4355 2.06385 17.8531 1.56679C17.2707 1.06974 16.5917 0.698571 15.8589 0.476641C15.1261 0.254712 14.3553 0.186818 13.5949 0.277231C12.8346 0.367644 12.1012 0.614406 11.4408 1.002C10.8941 1.32291 10.4072 1.73462 10.0007 2.21855C9.59419 1.73462 9.10733 1.32291 8.56059 1.002C7.90025 0.614406 7.16685 0.367644 6.40652 0.277231C5.64618 0.186818 4.87536 0.254712 4.14254 0.476641C3.40972 0.698571 2.73075 1.06974 2.14833 1.56679C1.5659 2.06385 1.09263 2.67604 0.758277 3.36487C0.423921 4.0537 0.235716 4.80427 0.205496 5.56936C0.175277 6.33445 0.303697 7.09752 0.58268 7.81058C0.861664 8.52363 1.2852 9.17127 1.8266 9.71272L10.0007 17.8858L18.2627 9.62586Z"
-													fill="#BB8C5F" />
-											</svg>
-										</button>
-									</div>
-									<div class="marceting__card-swiper swiper ">
-										<div class="swiper-wrapper">
-											<div class="swiper-slide"><img src="img/uploads/<?= $row['img'] ?>" alt=""
-													class="marceting__card-img">
-											</div>
-											<div class="swiper-slide"><img src="img/uploads/<?= $row['img'] ?>" alt=""
-													class="marceting__card-img">
-											</div>
-											<div class="swiper-slide"><img src="img/uploads/<?= $row['img'] ?>" alt=""
-													class="marceting__card-img">
-											</div>
-											<div class="swiper-slide"><img src="img/uploads/<?= $row['img'] ?>" alt=""
-													class="marceting__card-img">
-											</div>
-										</div>
-										<div class="marceting__card-swiperpagination"></div>
-									</div>
-									<div class="marceting__card-bottom">
-										<p class="marceting__card-name"><?= $row['name'] ?></p>
-										<span class="marceting__card-price"><?= $row['price'] ?> ₽</span>
-									</div>
-									<div class="marceting__card-busket">
-										<button class="marceting__card-busket-btn button button--card">Добавить в корзину</button>
-									</div>
+			<div class="goods">
 
-
-								</div>
-							</div>
-						</a>
-				<?php
-					}
-				} else {
-					echo "На сайте проводятся технические работы";
-				}
-				?>
 			</div>
-
+			<button id="showMore" class="button">Показать еще</button>
 			<button class="marceting__showmore button">Показать ещё</button>
 		</div>
 	</section>
-	<section class="catalog section">
+	<section class="catalog-main section">
 		<div class="container">
-			<h2 class="catalog__title section__title">Каталог</h2>
-			<div class="catalog__inner ">
-				<div class="catalog__row">
-					<a href="#" class="catalog__card catalog__card-1">
-						<h3 class="catalog__card-title">
+			<h2 id="main-catalog" class="catalog-main__title section__title">Каталог</h2>
+			<div class="catalog-main__inner ">
+				<div class="catalog-main__row">
+					<a href="./catalog.php?product_type=5" class="catalog-main__card catalog-main__card-1">
+						<h3 class="catalog-main__card-title">
 							Тату
 							наборы
 						</h3>
-						<img src="img/catalog/catalog-tato-kits.png" alt="" class="catalog__card-img">
+						<img src="img/catalog-main/catalog-tato-kits.png" alt="" class="catalog-main__card-img">
 					</a>
-					<a href="#" class="catalog__card catalog__card-2">
-						<h3 class="catalog__card-title">
+					<a href="./catalog.php?product_type=8" class="catalog-main__card catalog-main__card-2">
+						<h3 class="catalog-main__card-title">
 							Держатели
 						</h3>
-						<img src="img/catalog/catalog-holder.jpg" alt="" class="catalog__card-img" width="535" height="271">
+						<img src="img/catalog-main/catalog-holder.jpg" alt="" class="catalog-main__card-img" width="535" height="271">
 					</a>
 				</div>
-				<div class="catalog__row">
-					<a href="#" class="catalog__card catalog__card-3">
-						<h3 class="catalog__card-title">
+				<div class="catalog-main__row">
+					<a href="./catalog.php?product_type=1" class="catalog-main__card catalog-main__card-3">
+						<h3 class="catalog-main__card-title">
 							Тату машинки
 						</h3>
-						<img src="img/catalog/catalog-tato-machine.jpg" alt="" class="catalog__card-img" width="259" height="259">
+						<img src="img/catalog-main/catalog-tato-machine.jpg" alt="" class="catalog-main__card-img" width="259" height="259">
 					</a>
-					<a href="#" class="catalog__card catalog__card-4">
-						<h3 class="catalog__card-title">
+					<a href="./catalog.php?product_type=9" class="catalog-main__card catalog-main__card-4">
+						<h3 class="catalog-main__card-title">
 							Педали и провода
 						</h3>
-						<img src="img/catalog/catalog-pedals.jpg" alt="" class="catalog__card-img">
+						<img src="img/catalog-main/catalog-pedals.jpg" alt="" class="catalog-main__card-img">
 					</a>
-					<a href="#" class="catalog__card catalog__card-5">
-						<h3 class="catalog__card-title">
-							Держатели
+					<a href="./catalog.php?product_type=10" class="catalog-main__card catalog-main__card-5">
+						<h3 class="catalog-main__card-title">
+							Краски
 						</h3>
-						<img src="img/catalog/catalog-paints.jpg" alt="" class="catalog__card-img" width="307" height="266">
+						<img src="img/catalog-main/catalog-paints.jpg" alt="" class="catalog-main__card-img" width="307" height="266">
 					</a>
 				</div>
-				<div class="catalog__row">
-					<a href="#" class="catalog__card catalog__card-6">
-						<h3 class="catalog__card-title">
+				<div class="catalog-main__row">
+					<a href="./catalog.php?product_type=4" class="catalog-main__card catalog-main__card-6">
+						<h3 class="catalog-main__card-title">
 							Блоки питания
 						</h3>
-						<img src="img/catalog/catalog-power-unit.jpg" alt="" class="catalog__card-img" width="440" height="267">
+						<img src="img/catalog-main/catalog-power-unit.jpg" alt="" class="catalog-main__card-img" width="440" height="267">
 					</a>
-					<a href="#" class="catalog__card catalog__card-7">
-						<h3 class="catalog__card-title">
+					<a href="./catalog.php?product_type=11" class="catalog-main__card catalog-main__card-7">
+						<h3 class="catalog-main__card-title">
 							Наконечники
 						</h3>
-						<img src="img/catalog/catalog-tip.jpg" alt="" class="catalog__card-img" width="273" height="266">
+						<img src="img/catalog-main/catalog-tip.jpg" alt="" class="catalog-main__card-img" width="273" height="266">
 					</a>
-					<a href="#" class="catalog__card catalog__card-8">
-						<h3 class="catalog__card-title">
+					<a href="./catalog.php?product_type=3" class="catalog-main__card catalog-main__card-8">
+						<h3 class="catalog-main__card-title">
 							Тату иглы
 						</h3>
-						<img src="img/catalog/catalog-needle.jpg" alt="" class="catalog__card-img" width="307" height="266">
+						<img src="img/catalog-main/catalog-needle.jpg" alt="" class="catalog-main__card-img" width="307" height="266">
 					</a>
 				</div>
-				<div class="catalog__row">
-					<a href="#" class="catalog__card catalog__card-9">
-						<h3 class="catalog__card-title">
+				<div class="catalog-main__row">
+
+					<a href="./catalog.php?product_type=6" class="catalog-main__card catalog-main__card-9">
+						<h3 class="catalog-main__card-title">
 							Защита, ёмкости, расходники
 						</h3>
-						<img src="img/catalog/catalog-consumables.jpg" alt="" class="catalog__card-img" width="277" height="240">
+						<img src="img/catalog-main/catalog-consumables.jpg" alt="" class="catalog-main__card-img" width="277" height="240">
 					</a>
-					<a href="#" class="catalog__card catalog__card-10">
-						<h3 class="catalog__card-title">
+					<a href="./catalog.php?product_type=12" class="catalog-main__card catalog-main__card-10">
+						<h3 class="catalog-main__card-title">
 							Аксессуары
 						</h3>
-						<img src="img/catalog/catalog-accessories.jpg" alt="" class="catalog__card-img" width="277" height="240">
+						<img src="img/catalog-main/catalog-accessories.jpg" alt="" class="catalog-main__card-img" width="277" height="240">
 					</a>
-					<a href="#" class="catalog__card catalog__card-11">
-						<h3 class="catalog__card-title">
+					<a href="./catalog.php?product_type=7" class="catalog-main__card catalog-main__card-11">
+						<h3 class="catalog-main__card-title">
 							Принтеры и планшеты
 						</h3>
-						<img src="img/catalog/catalog-printer.jpg" alt="" class="catalog__card-img" width="439" height="336">
+						<img src="img/catalog-main/catalog-printer.jpg" alt="" class="catalog-main__card-img" width="439" height="336">
 					</a>
 				</div>
 			</div>
@@ -408,7 +349,7 @@ require_once "components/user-form.php";
 
 		</div>
 	</section>
-	<section class="reviews section">
+	<!-- <section class="reviews section">
 		<h2 class="reviews__title">
 			Отзывы
 		</h2>
@@ -515,7 +456,7 @@ require_once "components/user-form.php";
 
 			<div class="reviews__pagination swiper-pagination"></div>
 		</div>
-	</section>
+	</section> -->
 	<section class="newsletter section">
 		<div class="newsletter__content">
 			<div class="newsletter__container">
@@ -550,16 +491,17 @@ require_once "components/user-form.php";
 <?php
 include "components/footer.php";
 ?>
-<script src="js/user-form.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/user-form.js" type="module"></script>
 <script src="js/slider-top.js"></script>
+<!-- <script src="js/marceting-card.js"></script> -->
+<script src="js/main.js" type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/swiper-marceting.js"></script>
-<script src="js/swiper-brend.js"></script>
+<script src="js/wish.js" type="module"></script>
 <script src="js/marceting-filter.js"></script>
 <script src="js/marceting-show.js"></script>
-<script src="js/reviews.js"></script>
+<script src="js/swiper.js" type="module"></script>
 
-<script src="js/script.js"></script>
 </body>
 
 </html>
